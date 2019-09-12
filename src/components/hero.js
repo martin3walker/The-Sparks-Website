@@ -5,11 +5,17 @@ import Heading from './heading.js';
 import { Padding } from 'styled-components-spacing';
 
 const StyledHeroContainer = styled.div`
-  height: 75vh;
+  height: 100vh;
   display: flex;
-  justify-content: center;
+  position: relative;
   align-items: center;
   background-color: ${theme.colors.black};
+`;
+
+const StyledTextContainer = styled.div`
+  position: absolute;
+  bottom: 32px;
+  left: 24px;
 `;
 
 class Hero extends Component {
@@ -18,9 +24,11 @@ class Hero extends Component {
       <React.Fragment>
         <a id="top" />
         <StyledHeroContainer>
-          <Padding horizontal={{ xs: 3, sm: 5, lg: 7 }}>
-            <Heading color="white">The Sparks Will Melt Your Face Off </Heading>
-          </Padding>
+          <StyledTextContainer>
+            <Heading size="small" color="white">
+              The Sparks Will Melt Your Face Off{' '}
+            </Heading>
+          </StyledTextContainer>
         </StyledHeroContainer>
       </React.Fragment>
     );

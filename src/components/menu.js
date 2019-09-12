@@ -15,7 +15,7 @@ const StyledMenuContainer = styled.div`
   transition: ${theme.animations.transitions.standard};
   z-index: ${theme.zindex9};
   background-color: ${theme.colors.black};
-  width: 40%;
+  width: 30%;
   min-width: 250px;
 
   ul {
@@ -92,19 +92,17 @@ class Menu extends React.Component {
       open: false,
       menuCta: 'Open'
     };
+
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    e.preventDefault();
     let currentState = this.state.open;
     this.setState({ open: !currentState });
-    let cta;
-    currentState ? (cta = 'Open') : (cta = 'Close');
+
+    let cta = currentState ? 'Open' : 'Close';
     this.setState({ menuCta: cta });
   }
-
-  componentDidUpdate() {}
 
   render() {
     return (
@@ -126,7 +124,7 @@ class Menu extends React.Component {
           <StyledMenu>
             <Margin bottom={5}>
               <li>
-                <a href="#top" data-id="top">
+                <a href="#top" data-id="top" onClick={e => this.handleClick(e)}>
                   <Copy size="bigger" color={`${theme.colors.white}`}>
                     To the Top
                   </Copy>
@@ -135,7 +133,11 @@ class Menu extends React.Component {
             </Margin>
             <Margin bottom={5}>
               <li>
-                <a href="#shows" data-id="shows">
+                <a
+                  href="#shows"
+                  data-id="shows"
+                  onClick={e => this.handleClick(e)}
+                >
                   <Copy size="bigger" color={`${theme.colors.white}`}>
                     Shows
                   </Copy>
@@ -144,7 +146,11 @@ class Menu extends React.Component {
             </Margin>
             <Margin bottom={5}>
               <li>
-                <a href="#videos" data-id="videos">
+                <a
+                  href="#videos"
+                  data-id="videos"
+                  onClick={e => this.handleClick(e)}
+                >
                   <Copy size="bigger" color={`${theme.colors.white}`}>
                     Videos
                   </Copy>
@@ -152,7 +158,7 @@ class Menu extends React.Component {
               </li>
             </Margin>
             <Margin bottom={5}>
-              <li>
+              <li onClick={e => this.handleClick(e)}>
                 <a href="#music" data-id="music">
                   <Copy size="bigger" color={`${theme.colors.white}`}>
                     Music
@@ -162,7 +168,11 @@ class Menu extends React.Component {
             </Margin>
             <Margin bottom={5}>
               <li>
-                <a href="#pictures" data-id="pictures">
+                <a
+                  href="#pictures"
+                  data-id="pictures"
+                  onClick={e => this.handleClick(e)}
+                >
                   <Copy size="bigger" color={`${theme.colors.white}`}>
                     Pictures
                   </Copy>

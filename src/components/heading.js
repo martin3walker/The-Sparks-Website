@@ -5,9 +5,21 @@ import { theme } from './theme.js';
 
 const StyledHeading = styled.h1`
   font-family: ${theme.type.font.helvetica};
-  font-size: 48px;
+
+  ${props =>
+    props.size && props.size === 'smaller'
+      ? `font-size: ${theme.type.headingSize.small};`
+      : null}
+  ${props =>
+    props.size && props.size === 'default'
+      ? `font-size: ${theme.type.headingSize.default};`
+      : null}
+  ${props =>
+    props.size && props.size === 'bigger'
+      ? `font-size: ${theme.type.headingSize.bigger};`
+      : null};
+
   color: ${props => (props.color ? props.color : `currentColor`)};
-  text-align: center;
 `;
 
 class Heading extends React.Component {
@@ -26,7 +38,7 @@ Heading.propTypes = {
 };
 
 Heading.defaultProps = {
-  size: `${theme.type.fontSize.default}`
+  size: `${theme.type.headingSize.default}`
 };
 
 export default Heading;

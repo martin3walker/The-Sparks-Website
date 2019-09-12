@@ -46,7 +46,10 @@ export const theme = {
     black: '#000',
     textMid: '#333',
     whiteLight: 'rgba(255, 255, 255, .9)',
-    blackLight: 'rgba(0, 0, 0, .85)'
+    blackLight: 'rgba(0, 0, 0, .85)',
+    gray: 'rgb(221, 221, 221)',
+    red: '#c00',
+    darkGray: '#bbb'
   },
   transition: {
     fast: '0.1s',
@@ -60,10 +63,13 @@ export const theme = {
     },
     fontSize: {
       smaller: '12px',
-      small: '14px',
-      default: '16px',
-      normal: '18px',
-      bigger: '20px'
+      default: '14px',
+      bigger: '16px'
+    },
+    headingSize: {
+      small: '20px',
+      default: '24px',
+      bigger: '28px'
     },
     fontWeight: {
       regular: 400,

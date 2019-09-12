@@ -7,16 +7,12 @@ const StyledCopy = styled.div`
   font-family: ${theme.type.font.helvetica};
 
     ${props =>
-      props.size && props.size === 'small'
+      props.size && props.size === 'smaller'
         ? `font-size: ${theme.type.fontSize.small};`
         : null}
     ${props =>
       props.size && props.size === 'default'
         ? `font-size: ${theme.type.fontSize.default};`
-        : null}
-    ${props =>
-      props.size && props.size === 'normal'
-        ? `font-size: ${theme.type.fontSize.normal};`
         : null}
     ${props =>
       props.size && props.size === 'bigger'
