@@ -11,12 +11,11 @@ const StyledMenuContainer = styled.div`
   flex-direction: column;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   transition: ${theme.animations.transitions.standard};
   z-index: ${theme.zindex9};
   background-color: ${theme.colors.black};
-  width: 30%;
-  min-width: 250px;
+  width: 250px;
 
   ul {
     padding-left: ${theme.spacing[3]};
@@ -26,7 +25,7 @@ const StyledMenuContainer = styled.div`
   ${props =>
     props.open
       ? `transform: ${theme.animations.transforms.normalHorizontal}`
-      : `transform: ${theme.animations.transforms.fullAndHalfLeft};`}
+      : `transform: ${theme.animations.transforms.fullAndHalfRight};`}
 `;
 
 const StyledFlyoutContainer = styled.div`
@@ -57,10 +56,10 @@ const StyledMenu = styled.ul`
 
 const StyledMenuButtonContainer = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   transition: ${theme.animations.transitions.standard};
-  transform: ${theme.animations.transforms.fullAndHalfRight};
+  transform: ${theme.animations.transforms.fullAndHalfLeft};
   padding: ${theme.spacing[5]};
   &:hover {
     cursor: pointer;

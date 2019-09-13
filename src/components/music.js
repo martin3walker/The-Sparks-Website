@@ -48,8 +48,10 @@ class Music extends React.Component {
                   url
                   cta
                   image {
-                    file {
-                      url
+                    fluid(maxWidth: 800) {
+                      src
+                      srcSet
+                      sizes
                     }
                   }
                 }
@@ -75,7 +77,9 @@ class Music extends React.Component {
                     />
                     <Card
                       index={i}
-                      img={item.node.image.file.url}
+                      src={item.node.image.fluid.src}
+                      srcset={item.node.image.fluid.srcSet}
+                      sizes={item.node.image.fluid.sizes}
                       onClick={e => this.handleClick(e)}
                     >
                       <Copy>{item.node.title}</Copy>

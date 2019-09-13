@@ -49,8 +49,10 @@ class Videos extends React.Component {
                   title
                   url
                   coverImage {
-                    file {
-                      url
+                    fluid(maxWidth: 800) {
+                      src
+                      srcSet
+                      sizes
                     }
                   }
                 }
@@ -74,7 +76,9 @@ class Videos extends React.Component {
                       title={this.props.title}
                     />
                     <Card
-                      img={item.node.coverImage.file.url}
+                      src={item.node.coverImage.fluid.src}
+                      srcset={item.node.coverImage.fluid.srcSet}
+                      sizes={item.node.coverImage.fluid.sizes}
                       onClick={e => this.handleClick(e)}
                       index={i}
                     >

@@ -50,7 +50,12 @@ class Card extends Component {
     return (
       <StyledCardContainer {...this.props} href={this.props.href}>
         <StyledImageContainer href={this.props.href}>
-          <img data-index={this.props.index} src={this.props.img} />
+          <img
+            data-index={this.props.index}
+            src={this.props.src}
+            sizes={this.props.sizes}
+            srcset={this.props.srcset}
+          />
         </StyledImageContainer>
         <Padding all={{ xs: 2, lg: 3 }}>
           <StyledTextContainer>{this.props.children}</StyledTextContainer>
@@ -61,7 +66,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  img: PropTypes.object.isRequired,
+  src: PropTypes.object.isRequired,
   href: PropTypes.string.isRequired
 };
 

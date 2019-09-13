@@ -28,8 +28,10 @@ class Shows extends React.Component {
                   venueName
                   showUrl
                   coverImage {
-                    file {
-                      url
+                    fluid(maxWidth: 2000) {
+                      src
+                      srcSet
+                      sizes
                     }
                   }
                 }
@@ -50,7 +52,9 @@ class Shows extends React.Component {
                       >
                         <Card
                           href={item.node.showUrl}
-                          img={item.node.coverImage.file.url}
+                          src={item.node.coverImage.fluid.src}
+                          srcset={item.node.coverImage.fluid.srcSet}
+                          sizes={item.node.coverImage.fluid.sizes}
                         >
                           <StyledCopyContainer>
                             <Margin bottom={2}>
