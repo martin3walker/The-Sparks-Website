@@ -5,33 +5,30 @@ import { theme } from './theme.js';
 import SocialMediaIcons from './socialMedia.js';
 import { Margin } from 'styled-components-spacing';
 import PropTypes from 'prop-types';
+import Close from '../images/close-24px.svg';
+import Open from '../images/menu-24px.svg';
 
 const StyledMenuContainer = styled.div`
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  height: 100vh;
   transition: ${theme.animations.transitions.standard};
-  z-index: ${theme.zindex9};
-  background-color: ${theme.colors.black};
-  width: 250px;
-
+  z-index: ${theme.zindex8};
+  background-color: ${theme.colors.darkGray};
+  padding-top: ${theme.spacing[60]};
+  padding-right: ${theme.spacing[40]};
   ul {
-    padding-left: ${theme.spacing[3]};
-    padding-right: ${theme.spacing[3]};
+    padding-left: ${theme.spacing[5]};
+    padding-right: ${theme.spacing[5]};
   }
 
   ${props =>
     props.open
       ? `transform: ${theme.animations.transforms.normalHorizontal}`
-      : `transform: ${theme.animations.transforms.fullAndHalfRight};`}
-`;
-
-const StyledFlyoutContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+      : `transform: ${theme.animations.transforms.fullAndHalfLeft};`}
 `;
 
 const StyledMenu = styled.ul`
@@ -39,8 +36,7 @@ const StyledMenu = styled.ul`
   flex-direction: column;
   list-style: none;
   color: ${theme.colors.white};
-  height: 100vh;
-  align-items: center;
+  padding-left: ${theme.spacing[3]};
 
   li {
     transition: ${theme.animations.transitions.standard};
@@ -55,12 +51,13 @@ const StyledMenu = styled.ul`
 `;
 
 const StyledMenuButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  transition: ${theme.animations.transitions.standard};
-  transform: ${theme.animations.transforms.fullAndHalfLeft};
-  padding: ${theme.spacing[5]};
+  display: inline-flex;
+  justify-content: flex-start;
+  padding: ${theme.spacing[2]};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: ${theme.zindex9};
   &:hover {
     cursor: pointer;
   }
@@ -77,11 +74,13 @@ const MenuButtonPosition = styled.div`
   flex-direction: column;
   align-items: center;
   padding: ${theme.spacing[4]};
-  background-color: ${theme.colors.black};
 `;
 
 const StyledMenuButton = styled.div`
   display: flex;
+  img {
+    width: 36px;
+  }
 `;
 
 class Menu extends React.Component {
@@ -89,7 +88,7 @@ class Menu extends React.Component {
     super(props);
     this.state = {
       open: false,
-      menuCta: 'Open'
+      menuCta: Open
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -99,27 +98,24 @@ class Menu extends React.Component {
     let currentState = this.state.open;
     this.setState({ open: !currentState });
 
-    let cta = currentState ? 'Open' : 'Close';
+    let cta = currentState ? Open : Close;
     this.setState({ menuCta: cta });
   }
 
   render() {
     return (
-      <StyledMenuContainer open={this.state.open} {...this.props}>
+      <React.Fragment>
         <StyledMenuButtonContainer
           open={this.state.open}
           onClick={e => this.handleClick(e)}
         >
           <MenuButtonPosition>
             <StyledMenuButton>
-              <Copy color={`${theme.colors.white}`} cta={this.state.menuCta}>
-                {this.state.menuCta} Menu
-              </Copy>
+              <img src={this.state.menuCta} />
             </StyledMenuButton>
           </MenuButtonPosition>
         </StyledMenuButtonContainer>
-        <StyledFlyoutContainer open={this.state.open}>
-          <SocialMediaIcons />
+        <StyledMenuContainer open={this.state.open} {...this.props}>
           <StyledMenu>
             <Margin bottom={5}>
               <li>
@@ -165,7 +161,7 @@ class Menu extends React.Component {
                 </a>
               </li>
             </Margin>
-            <Margin bottom={5}>
+            <Margin>
               <li>
                 <a
                   href="#pictures"
@@ -179,8 +175,11 @@ class Menu extends React.Component {
               </li>
             </Margin>
           </StyledMenu>
-        </StyledFlyoutContainer>
-      </StyledMenuContainer>
+          <Margin top={30}>
+            <SocialMediaIcons />
+          </Margin>
+        </StyledMenuContainer>
+      </React.Fragment>
     );
   }
 }

@@ -4,12 +4,13 @@ import Copy from './copy.js';
 import { Margin } from 'styled-components-spacing';
 import PropTypes from 'prop-types';
 import { theme } from './theme.js';
+import Close from '../images/close-24px.svg';
 
 const StyledOverlay = styled.div`
   width: 100%;
   height: ${props => (props.video ? '100vh' : '130px')};
   position: fixed;
-  background: ${theme.colors.black};
+  background: ${theme.colors.darkGray};
   left: 0;
   bottom: 0;
   align-items: center;
@@ -22,6 +23,21 @@ const StyledOverlay = styled.div`
         : `transform: translateY(100%)`};
   transition: ${theme.animations.transitions.standard};
   z-index: 10000;
+
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    ${props =>
+      props.video
+        ? `margin: ${theme.spacing[7]};`
+        : `margin: ${theme.spacing[4]};`};
+    width: 50px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 `;
 
 class Overlay extends Component {
@@ -31,6 +47,7 @@ class Overlay extends Component {
 
     return (
       <StyledOverlay {...this.props}>
+        <img src={Close} />
         <iframe
           width="560"
           height={iframeHeight}

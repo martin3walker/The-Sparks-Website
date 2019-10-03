@@ -51,7 +51,7 @@ class SocialMediaIcons extends React.Component {
             {data.allContentfulSocialMedia.edges.map(item => (
               <StyledSocialMediaIcon>
                 <a href={item.node.url} target="blank_">
-                  <Padding all={2}>
+                  <Padding right={4}>
                     <img src={item.node.icon.file.url} alt={item.node.name} />
                   </Padding>
                 </a>

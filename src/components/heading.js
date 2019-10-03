@@ -20,7 +20,6 @@ const StyledHeading = styled.h1`
       : null};
 
   color: ${props => (props.color ? props.color : `currentColor`)};
-  font-weight: 300;
 `;
 
 class Heading extends React.Component {

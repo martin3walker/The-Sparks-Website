@@ -19,6 +19,8 @@ class Music extends React.Component {
 
   handleClick(e, index) {
     e.preventDefault();
+    let card = e.target.parentNode.parentNode.parentNode;
+    let iframe = card.querySelector('iframe');
     let currentIndex = this.state.display.findIndex(item => item === true);
     let newIndex = parseInt(e.target.dataset.index);
     let newDisplay;

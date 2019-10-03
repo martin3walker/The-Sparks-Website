@@ -22,7 +22,6 @@ const StyledCopy = styled.div`
     ${props => props.textAlign && `text-align:${props.textAlign}`}
 
     color: ${props => (props.color ? props.color : `currentColor`)};
-    font-weight: 300;
 `;
 
 class Copy extends React.Component {

@@ -94,7 +94,7 @@ export const theme = {
     transforms: {
       normalHorizontal: 'translateX(0px)',
       normalVertical: 'translateY(0px)',
-      grow: 'scale(1.2)',
+      grow: 'scale(1.05)',
       jump: 'translateY(-5px)',
       fullAndHalfLeft: 'translateX(-150%)',
       fullAndHalfRight: 'translateX(150%)'

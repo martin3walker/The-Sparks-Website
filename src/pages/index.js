@@ -22,7 +22,7 @@ const IndexPage = ({ data }) => (
       <Section title="Music">
         <Music />
       </Section>
-      <Section title="Pictures" fullWidth={true}>
+      <Section title="Pictures">
         <Pictures />
       </Section>
     </React.Fragment>

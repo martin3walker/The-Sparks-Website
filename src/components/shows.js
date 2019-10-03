@@ -55,6 +55,7 @@ class Shows extends React.Component {
                           src={item.node.coverImage.fluid.src}
                           srcset={item.node.coverImage.fluid.srcSet}
                           sizes={item.node.coverImage.fluid.sizes}
+                          target="_blank"
                         >
                           <StyledCopyContainer>
                             <Margin bottom={2}>
