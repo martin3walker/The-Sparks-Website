@@ -5,6 +5,7 @@ import { theme } from './theme.js';
 import SocialMediaIcons from './socialMedia.js';
 import { Margin } from 'styled-components-spacing';
 import PropTypes from 'prop-types';
+import breakpoint from 'styled-components-breakpoint';
 import Close from '../images/close-24px.svg';
 import Open from '../images/menu-24px.svg';
 
@@ -18,8 +19,12 @@ const StyledMenuContainer = styled.div`
   transition: ${theme.animations.transitions.standard};
   z-index: ${theme.zindex8};
   background-color: ${theme.colors.darkGray};
+  ${breakpoint('lg')`
   padding-top: ${theme.spacing[60]};
   padding-right: ${theme.spacing[40]};
+  `}
+  padding-top: ${theme.spacing[30]};
+  padding-right: ${theme.spacing[20]};
   ul {
     padding-left: ${theme.spacing[5]};
     padding-right: ${theme.spacing[5]};
@@ -53,7 +58,6 @@ const StyledMenu = styled.ul`
 const StyledMenuButtonContainer = styled.div`
   display: inline-flex;
   justify-content: flex-start;
-  padding: ${theme.spacing[2]};
   position: fixed;
   top: 0;
   left: 0;

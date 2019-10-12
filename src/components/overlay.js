@@ -5,6 +5,7 @@ import { Margin } from 'styled-components-spacing';
 import PropTypes from 'prop-types';
 import { theme } from './theme.js';
 import Close from '../images/close-24px.svg';
+import breakpoint from 'styled-components-breakpoint';
 
 const StyledOverlay = styled.div`
   width: 100%;
@@ -38,6 +39,11 @@ const StyledOverlay = styled.div`
       cursor: pointer;
     }
   }
+
+  iframe {
+    ${breakpoint('lg')`width: 560px;`}
+    width: 300px;
+  }
 `;
 
 class Overlay extends Component {
@@ -49,7 +55,6 @@ class Overlay extends Component {
       <StyledOverlay {...this.props}>
         <img src={Close} />
         <iframe
-          width="560"
           height={iframeHeight}
           src={this.props.src}
           frameborder="0"

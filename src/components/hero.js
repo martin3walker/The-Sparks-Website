@@ -6,7 +6,7 @@ import { Padding } from 'styled-components-spacing';
 import { StaticQuery } from 'gatsby';
 
 const StyledHeroContainer = styled.div`
-  height: 90vh;
+  height: 100vh;
   display: flex;
   position: relative;
   align-items: center;

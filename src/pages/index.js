@@ -1,6 +1,7 @@
 import React from 'react';
 import Section from '../components/section.js';
 import Hero from '../components/hero.js';
+import Footer from '../components/footer.js';
 import Shows from '../components/shows.js';
 import Videos from '../components/videos.js';
 import Music from '../components/music.js';
@@ -25,6 +26,7 @@ const IndexPage = ({ data }) => (
       <Section title="Pictures">
         <Pictures />
       </Section>
+      <Footer />
     </React.Fragment>
   </ThemeProvider>
 );
