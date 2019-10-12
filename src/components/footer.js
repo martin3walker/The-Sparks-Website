@@ -52,7 +52,7 @@ class Footer extends Component {
           }
         `}
         render={data => (
-          <Margin horizontal={{ xs: 0, lg: 3 }}>
+          <Margin horizontal={3}>
             <StyledFooterContainer>
               <Padding top={6} bottom={9}>
                 <Grid>
